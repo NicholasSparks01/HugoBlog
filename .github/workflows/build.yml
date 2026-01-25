@@ -1,31 +1,41 @@
-name: Build & Deploy Hugo Blog
+name: Build and Publish Hugo Site
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     permissions:
-      contents: read
-      packages: write
+      contents: write    # Allow write access for deployment
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # 1️⃣ Checkout repository (with full history for themes)
+      - uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: true
+          fetch-depth: 0
 
-      - name: Login to GHCR
-        uses: docker/login-action@v3
+      # 2️⃣ Setup Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          hugo-version: 'latest'
+          extended: true
 
-      - name: Build and Push Docker Image
-        run: |
-          docker build -t ghcr.io/${{ github.repository }}:latest .
-          docker push ghcr.io/${{ github.repository }}:latest
+      # 3️⃣ Build the site
+      - name: Build Hugo
+        run: hugo --minify
+
+      # 4️⃣ Deploy built public/ to branch "public"
+      - name: Deploy to branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: public
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
