@@ -1,6 +1,8 @@
 +++
 title = 'Getting Started with Reverse Engineering & Hardware Hacking'
 date = 2026-01-25T15:50:52Z
+categories = ['How-To's', 'Reverse Engineering', 'Hardware Hacking']
+tags = ['RE', 'Hardware', 'Hacking', 'Ghidra', 'Binwalk"]
 +++
 
 
@@ -46,7 +48,7 @@ Choosing the right tools can get you surprisingly far in a project, so picking w
 - Multimeter
 - Jumper Wires (male-to-male, male-to-female)
 - Soldering Iron (and supplementals like solder, flux, etc.)
-## Nice-to-Have
+## Nice-to-Have's
 - Universal Programmer (XGecu)
 - Hot Air Station
 
