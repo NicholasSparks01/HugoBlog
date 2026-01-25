@@ -1,0 +1,25 @@
+baseURL: http://blackboxsociety.org/
+languageCode: en-us
+title: Black Box Society's Blog Page
+theme: PaperMod
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  defaultTheme: auto
+  author: Black Box Society
+  showReadingTime: true
+  showDate: true
+
+  homeInfoParams:
+    enable: true
+    Title: Hi there wave
+    Content: this be the homepage
+
+  socialIcons:
+    - name: X
+      url: https://x.com/

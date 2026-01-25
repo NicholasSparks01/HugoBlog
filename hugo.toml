@@ -1,7 +1,0 @@
-baseURL = 'https://blog.blackboxsociety.org/'
-languageCode = 'en-us'
-title = "Black Box Society's Blog Page"
-
-[params]
-	ShowReadingTime = true
-	ShowCodeCopyButton = true
