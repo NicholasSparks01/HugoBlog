@@ -3,31 +3,31 @@ name: Build Hugo Site
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout source code
-      - uses: actions/checkout@v3
+      # 1️⃣ Checkout source
+      - name: Checkout repository
+        uses: actions/checkout@v3
         with:
-          persist-credentials: false  # allow pushing back to repo
+          persist-credentials: false  # So we can push
 
-      # 2. Set up Hugo
+      # 2️⃣ Setup Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.123.7'   # match your version
+          hugo-version: '0.123.7'  # Replace with your version
 
-      # 3. Build the site into public/
-      - name: Build
+      # 3️⃣ Build the site
+      - name: Build Hugo site
         run: hugo --minify
 
-      # 4. Commit public/ back to repo (to branch public)
+      # 4️⃣ Commit and push public/ folder
       - name: Push generated site
-        uses: actions/configure-aws-credentials@v3 # skip if no AWS
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
