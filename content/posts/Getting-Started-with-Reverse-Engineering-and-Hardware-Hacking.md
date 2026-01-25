@@ -1,8 +1,8 @@
 +++
 title = 'Getting Started with Reverse Engineering & Hardware Hacking'
 date = 2026-01-25T15:50:52Z
-categories = ['How-To's', 'Reverse Engineering', 'Hardware Hacking']
-tags = ['RE', 'Hardware', 'Hacking', 'Ghidra', 'Binwalk"]
+categories = ["How-To's", "Reverse Engineering", "Hardware Hacking"]
+tags = ["RE", "Hardware", "Hacking", "Ghidra", "Binwalk"]
 +++
 
 
