@@ -1,34 +1,41 @@
-name: Build and Deploy Hugo Site
+name: Build and Publish Hugo Site
 
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write    # Allow write access for deployment
 
     steps:
-      # 1️⃣ Checkout repository
-      - uses: actions/checkout@v3
+      # 1️⃣ Checkout repository (with full history for themes)
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
       # 2️⃣ Setup Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.123.7'  # match your Hugo version
+          hugo-version: 'latest'
+          extended: true
 
       # 3️⃣ Build the site
-      - name: Build Hugo site
+      - name: Build Hugo
         run: hugo --minify
 
-      # 4️⃣ Deploy to branch 'public'
-      - name: Deploy to public branch
-        uses: peaceiris/actions-gh-pages@v5
+      # 4️⃣ Deploy built public/ to branch "public"
+      - name: Deploy to branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          publish_dir: ./public
-          destination_branch: public
-          commit_message: "Rebuild site [skip ci]"
-          keep_files: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: public
+          force_orphan: true
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
