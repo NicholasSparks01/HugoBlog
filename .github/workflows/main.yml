@@ -1,0 +1,38 @@
+name: Build Hugo Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout source code
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # allow pushing back to repo
+
+      # 2. Set up Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.123.7'   # match your version
+
+      # 3. Build the site into public/
+      - name: Build
+        run: hugo --minify
+
+      # 4. Commit public/ back to repo (to branch public)
+      - name: Push generated site
+        uses: actions/configure-aws-credentials@v3 # skip if no AWS
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add -f public
+          git commit -m "Rebuild site [skip ci]" || echo "No changes to commit"
+          git push origin HEAD:public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
