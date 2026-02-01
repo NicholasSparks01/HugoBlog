@@ -11,6 +11,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
+# Search Page
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Black Box Society's Blog
