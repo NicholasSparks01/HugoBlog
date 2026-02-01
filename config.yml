@@ -133,6 +133,10 @@ menu:
       name: BlackBoxSociety.org
       url: https://BlackBoxSociety.org
       weight: 30
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 40
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
