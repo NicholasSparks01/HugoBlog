@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Black Box Society&#39;s Blog</title>
+    <link>http://blog.blackboxsociety.org/categories/</link>
+    <description>Recent content in Categories on Black Box Society&#39;s Blog</description>
+    <image>
+      <title>Black Box Society&#39;s Blog</title>
+      <url>http://blog.blackboxsociety.org/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://blog.blackboxsociety.org/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.155.3</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Jan 2026 15:50:52 +0000</lastBuildDate>
+    <atom:link href="http://blog.blackboxsociety.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hardware Hacking</title>
+      <link>http://blog.blackboxsociety.org/categories/hardware-hacking/</link>
+      <pubDate>Sun, 25 Jan 2026 15:50:52 +0000</pubDate>
+      <guid>http://blog.blackboxsociety.org/categories/hardware-hacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>How-To&#39;s</title>
+      <link>http://blog.blackboxsociety.org/categories/how-tos/</link>
+      <pubDate>Sun, 25 Jan 2026 15:50:52 +0000</pubDate>
+      <guid>http://blog.blackboxsociety.org/categories/how-tos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reverse Engineering</title>
+      <link>http://blog.blackboxsociety.org/categories/reverse-engineering/</link>
+      <pubDate>Sun, 25 Jan 2026 15:50:52 +0000</pubDate>
+      <guid>http://blog.blackboxsociety.org/categories/reverse-engineering/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
